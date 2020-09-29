@@ -1,20 +1,17 @@
 def binary_search(arr, target, start, end):
-    found = False
+    if len(arr) is 0:
+        return -1
+    middle_ind = (start + end) // 2
+    if target == arr[middle_ind]:
+        return middle_ind
+    else:
+        if target <= arr[middle_ind]:
+            end = middle_ind - 1
 
-    while end >= start and found is False:
-        middle_ind = (start + end) // 2
-        if target == arr[middle_ind]:
-            found = True
-            return middle_ind
-        else:
-            if target <= arr[middle_ind]:
-                end = middle_ind - 1
+        if target > arr[middle_ind]:
+            start = middle_ind + 1
 
-            if target > arr[middle_ind]:
-                start = middle_ind + 1
-
-            return binary_search(arr, target, start, end)
-    return -1
+        return binary_search(arr, target, start, end)
 
     # STRETCH: implement an order-agnostic binary search
     # This version of binary search should correctly find

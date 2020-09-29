@@ -22,5 +22,33 @@ def binary_search(arr, target, start, end):
 
 
 def agnostic_binary_search(arr, target):
-    # Your code here
-    pass
+    if len(arr) == 0:
+        return -1
+    start = 0
+    end = len(arr) - 1
+    middle = (start + end) // 2
+    is_asc = start < end
+    found = False
+
+    if is_asc:
+        while not found and end >= start:
+            if arr[middle] == target:
+                found = True
+                return middle
+            if arr[middle] > target:
+                end = middle - 1
+            if arr[middle] < target:
+                start = middle + 1
+            return agnostic_binary_search(arr, target)
+        return -1
+    else:
+        while not found and end <= start:
+            if arr[middle] == target:
+                found = True
+                return middle
+            if arr[middle] > target:
+                start = middle + 1
+            if arr[middle] < target:
+                end = middle - 1
+            return agnostic_binary_search(arr, target)
+        return -1

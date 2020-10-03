@@ -4,6 +4,10 @@ def merge(arrA, arrB):
     merged_arr = [0] * elements
 
     # Your code here
+    merged_arr = arrA + arrB
+
+    if(merged_arr is not sorted(merged_arr)):
+        merge_sort(merged_arr)
 
     return arrA, arrB
 
@@ -27,7 +31,6 @@ def merge_sort(arr, i=0):
 
 arr1 = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
 print(merge_sort(arr1))
-
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't
 # utilize any extra memory
 # In other words, your implementation should not allocate any additional lists

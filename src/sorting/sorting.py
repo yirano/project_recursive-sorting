@@ -4,6 +4,10 @@ def merge(arrA, arrB):
     merged_arr = [0] * elements
 
     # Your code here
+    merged_arr = arrA + arrB
+
+    if(merged_arr is not sorted(merged_arr)):
+        merge_sort(merged_arr)
 
     return merged_arr
 
@@ -15,19 +19,18 @@ def merge_sort(arr):
     middle = len(arr) // 2
     left = []
     right = []
-    for i in arr[:middle]:
-        if i < arr[middle]:
-            left.append(i)
+    for num in arr[:middle]:
+        if num < arr[middle]:
+            left.append(num)
         else:
-            right.append(i)
-        merge_sort(left)
+            right.append(num)
+    for num in arr[middle:]:
+        if num < arr[middle]:
+            left.append(num)
+        else:
+            right.append(num)
 
-    for j in arr[middle:]:
-        if j < arr[middle]:
-            left.append(j)
-        else:
-            right.append(j)
-    return left, right
+    return merge(left, right)
 
 
 arr1 = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]

@@ -25,14 +25,11 @@ def merge(arrA, arrB):
 def merge_sort(arr):
     middle = len(arr)//2
 
-    for i in arr[1:middle]:
+    for i in range(1, middle):
         print(i)
         if arr[i-1] > arr[i]:
             arr[i-1], arr[i] = arr[i], arr[i-1]
-    for j in arr[middle+1:]:
-        print(j)
-        if arr[j-1] > arr[j]:
-            arr[j-1], arr[j] = arr[j], arr[j-1]
+
     return arr
 
 

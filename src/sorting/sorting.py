@@ -12,9 +12,26 @@ def merge(arrA, arrB):
 
 def merge_sort(arr):
     # Your code here
+    middle = len(arr) // 2
+    left = []
+    right = []
+    for i in arr[:middle]:
+        if i < arr[middle]:
+            left.append(i)
+        else:
+            right.append(i)
+        merge_sort(left)
 
-    return arr
+    for j in arr[middle:]:
+        if j < arr[middle]:
+            left.append(j)
+        else:
+            right.append(j)
+    return left, right
 
+
+arr1 = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
+print(merge_sort(arr1))
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't
 # utilize any extra memory
 # In other words, your implementation should not allocate any additional lists

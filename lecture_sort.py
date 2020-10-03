@@ -15,20 +15,11 @@ def partition(numbers):
 
 
 def quicksort(numbers):
-    # base case
-    # what is the easiest array to sort?
-    # "Conquer" step, it's just so easy
     if len(numbers) <= 1:
         return numbers
 
-    # divide
-    # figure out how to properly split our data
     left, pivot, right = partition(numbers)
-    # make an array of size one with the pivot, this is now sorted
     pivot = [pivot]
 
     sorted_array = quicksort(left) + pivot + quicksort(right)
     return sorted_array
-    # print(left)
-    # print(pivot)
-    # print(right)

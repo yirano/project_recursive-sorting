@@ -19,20 +19,28 @@ def merge_1(arrA, arrB, merged=[]):
 
 
 def merge(arrA, arrB):
-    pass   
-
-
-
-# TO-DO: implement the Merge Sort function below recursively
-arr1 = [3, 5, 6]
-arr4 = [0, 1, 2, 3, 4, 5]
-
-print(merge(arr1, arr4))
+    return arrA + arrB
 
 
 def merge_sort(arr):
-    # Your code here
+    middle = len(arr)//2
+
+    for i in arr[1:middle]:
+        print(i)
+        if arr[i-1] > arr[i]:
+            arr[i-1], arr[i] = arr[i], arr[i-1]
+    for j in arr[middle+1:]:
+        print(j)
+        if arr[j-1] > arr[j]:
+            arr[j-1], arr[j] = arr[j], arr[j-1]
     return arr
+
+
+# TO-DO: implement the Merge Sort function below recursively
+arr1 = [5, 3, 7, 2, 4, 1, 6, 8, 10, 9]
+
+print(merge_sort(arr1))
+
 
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't
 # utilize any extra memory

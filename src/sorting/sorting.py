@@ -1,36 +1,36 @@
 # TO-DO: complete the helper function below to merge 2 sorted arrays
 def merge(arrA, arrB):
-    elements = len(arrA) + len(arrB)
-    merged_arr = [0] * elements
+    merged_arr = []
+    i = 0
+    j = 0
 
-    # Your code here
-    merged_arr = arrA + arrB
-
-    if(merged_arr is not sorted(merged_arr)):
-        merge_sort(merged_arr)
-
-    return arrA, arrB
-
-# TO-DO: implement the Merge Sort function below recursively
-
-
-def merge_sort(arr, i=0):
-    # Your code here
-    middle = len(arr)//2
-    left = []
-    right = []
-
-    for i in range(0, len(arr)):
-        if arr[i] < arr[middle]:
-            left.append(arr[i])
+    while i < len(arrB) and j < len(arrB):
+        if arrA[i] <= arrB[j]:
+            merged_arr.append(arrA[i])
+            i += 1
         else:
-            right.append(arr[i])
+            merged_arr.append(arrB[j])
+            j += 1
 
+    return merged_arr + arrA[i:] + arrB[j:]
+
+
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+
+    # divide the arrays
+    middle = len(arr) // 2
+    left = merge_sort(arr[:middle])
+    right = merge_sort(arr[middle:])
+
+    # merging sorted arrays
     return merge(left, right)
 
 
-arr1 = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
-print(merge_sort(arr1))
+# arr1 = [2, 4, 9, 3, 7, 8]
+arr = [6, 2, 4, 8, 5, 1, 9, 7]
+print(merge_sort(arr))
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't
 # utilize any extra memory
 # In other words, your implementation should not allocate any additional lists

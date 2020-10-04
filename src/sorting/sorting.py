@@ -4,7 +4,7 @@ def merge(arrA, arrB):
     i = 0
     j = 0
 
-    while i < len(arrB) and j < len(arrB):
+    while i < len(arrA) and j < len(arrB):
         if arrA[i] <= arrB[j]:
             merged_arr.append(arrA[i])
             i += 1
@@ -29,7 +29,8 @@ def merge_sort(arr):
 
 
 # arr1 = [2, 4, 9, 3, 7, 8]
-arr = [6, 2, 4, 8, 5, 1, 9, 7]
+# arr = [6, 2, 4, 8, 5, 1, 9, 7]
+arr = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
 print(merge_sort(arr))
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't
 # utilize any extra memory

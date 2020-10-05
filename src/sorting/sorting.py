@@ -39,11 +39,26 @@ arr = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
 
 
 def merge_in_place(arr, start, mid, end):
-    pass
+
+    while start < mid and mid <= end:
+        if arr[start] > arr[mid]:
+            arr.insert(start, arr.pop(mid))
+            start += 1
+            mid += 1
+        else:
+            start += 1
 
 
 def merge_sort_in_place(arr, left, right):
-    pass
+    if abs(left - right) > 1:
+
+        middle = left + (right - left) // 2
+
+        merge_sort_in_place(arr, left, middle)
+        merge_sort_in_place(arr, middle + 1, right)
+        merge_in_place(arr, left, middle + 1, right)
+    else:
+        merge_in_place(arr, left, right, right)
 
 
 # print(arr)

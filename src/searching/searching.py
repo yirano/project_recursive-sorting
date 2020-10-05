@@ -24,7 +24,7 @@ def binary_search(arr, target, start, end):
 def agnostic_binary_search(arr, target):
     if len(arr) == 0:
         return -1
-        
+
     start = 0
     end = len(arr) - 1
     found = False
@@ -53,5 +53,5 @@ def agnostic_binary_search(arr, target):
                     start = middle + 1
                 if arr[middle] < target:
                     end = middle - 1
-           
+
         return -1
